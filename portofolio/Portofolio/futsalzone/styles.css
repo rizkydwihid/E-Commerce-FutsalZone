@@ -73,7 +73,7 @@ body{
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #297559;
+  box-shadow: 0px 3px 4px 3px #47c9af;
   z-index: 9;
   border-radius: 10px;
 }
@@ -82,7 +82,7 @@ body{
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: #297559;
+  background-color: white;
   font-size: 13px;
   border-radius: 10px;
 }
@@ -189,11 +189,11 @@ body{font:15px/1 sans-serif; margin:0;}
   right: 0px;
 }
 #slide1{
-  background-image:url('img/specs.jpg');
+  background-image: url('img/swervo-dynamite.jpg');
   background-size: contain;
 }
 #slide2{
-  background-image:url('img/swervo.png');
+  background-image:url('img/apache-merah.png');
   background-size: contain;
 }
 #slide3{
@@ -604,4 +604,15 @@ img.imeg{
   font-size: 16px;
   padding: 16px 32px;
   border-radius: 10px; 
+}
+
+.back{
+  display: block;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px 20px 10px 20px;
+  color: black;
+  box-shadow: 0px 1px 4px 1px #47c9af;
+  font-size: 12px;
+  font-family: Raleway, sans-serif;
 }
