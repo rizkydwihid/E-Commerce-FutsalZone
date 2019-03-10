@@ -1,0 +1,51 @@
+[2019-03-04 23:53:09,824]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer [GET]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/customer/resource.py", line 20, in get
+    qry = Customers.query.get(customer['id'])
+KeyError: 'id'
+[2019-03-04 23:53:09,825]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Internal Server Error"}}
+[2019-03-04 23:54:10,574]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-04 23:54:45,453]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-04 23:54:55,710]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-04 23:57:36,376]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "dwi", "password": "passdwi", "email": "dwi@gmial.com", "phone": "0856721313"}, "response": {"client_id": 2, "username": "dwi", "password": "passdwi", "phone": "dwi@gmial.com", "email": "0856721313", "role": "customer"}}
+[2019-03-04 23:57:44,516]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-04 23:59:41,364]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "passrizky"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:00:02,928]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "passrizky"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:00:08,995]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "passrizky"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:01:44,267]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "dwi", "password": "passdwi"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:03:41,336]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "dwi", "password": "passdwi"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTE3MTkwMjEsIm5iZiI6MTU1MTcxOTAyMSwianRpIjoiM2Q3YTYzZWEtNzNiNi00OTM0LWI0OGItYjcxYzUzODVkMzRlIiwiZXhwIjoxNTUxODA1NDIxLCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjIsInVzZXJuYW1lIjoiZHdpIiwicGFzc3dvcmQiOiJwYXNzZHdpIiwicGhvbmUiOiJkd2lAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzIiwicm9sZSI6ImN1c3RvbWVyIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7ImNsaWVudF9pZCI6MiwidXNlcm5hbWUiOiJkd2kiLCJwYXNzd29yZCI6InBhc3Nkd2kiLCJwaG9uZSI6ImR3aUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4NTY3MjEzMTMiLCJyb2xlIjoiY3VzdG9tZXIifX0.dqMeEjXMGxKiM481gWpYU8Yo_kGYijE3OeEc0jJnEMI"}}
+[2019-03-05 00:03:45,224]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:04:22,192]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:05:16,675]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:06:26,246]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:06:27,545]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:07:27,605]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer/2 [GET]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 103, in wrapper
+    verify_jwt_in_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data = _decode_jwt_from_request(request_type='access')
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 291, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2019-03-05 00:07:27,607]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Internal Server Error"}}

@@ -1,0 +1,93 @@
+[2019-03-05 00:07:39,403]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer/2 [GET]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 103, in wrapper
+    verify_jwt_in_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data = _decode_jwt_from_request(request_type='access')
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 291, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2019-03-05 00:07:39,406]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Internal Server Error"}}
+[2019-03-05 00:09:22,137]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer/2 [GET]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 104, in wrapper
+    return fn(*args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'client_id'
+[2019-03-05 00:09:22,138]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Internal Server Error"}}
+[2019-03-05 00:10:28,195]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:10:36,479]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-05 00:12:48,194]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer [GET]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 104, in wrapper
+    return fn(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/customer/resource.py", line 20, in get
+    qry = Customers.query.get(customer['client_id'])
+KeyError: 'id'
+[2019-03-05 00:12:48,197]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Internal Server Error"}}
+[2019-03-05 00:14:15,981]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "dwi", "password": "passdwi"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTE3MTk2NTUsIm5iZiI6MTU1MTcxOTY1NSwianRpIjoiNTQ2OTEzY2MtOTEyMS00MzMzLTk2MmUtZTRlZmE1ODUyNjRkIiwiZXhwIjoxNTUxODA2MDU1LCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjIsInVzZXJuYW1lIjoiZHdpIiwicGFzc3dvcmQiOiJwYXNzZHdpIiwicGhvbmUiOiJkd2lAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzIiwicm9sZSI6ImN1c3RvbWVyIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7ImNsaWVudF9pZCI6MiwidXNlcm5hbWUiOiJkd2kiLCJwYXNzd29yZCI6InBhc3Nkd2kiLCJwaG9uZSI6ImR3aUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4NTY3MjEzMTMiLCJyb2xlIjoiY3VzdG9tZXIifX0.JDZvSTj8GTNLXnyHtL0DGe3XM16MnIpWmLt2KpCcbN0"}}
+[2019-03-05 00:14:29,167]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"client_id": 2, "username": "dwi", "password": "passdwi", "role": "customer"}}
+[2019-03-05 00:20:25,804]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer [PUT]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 103, in wrapper
+    verify_jwt_in_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data = _decode_jwt_from_request(request_type='access')
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 291, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2019-03-05 00:20:25,807]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "dwi h", "password": "passdwi", "email": "dwi@gmail.com", "phone": "0856721313"}, "response": {"message": "Internal Server Error"}}
+[2019-03-05 00:21:06,818]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /customer [PUT]
+Traceback (most recent call last):
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 104, in wrapper
+    return fn(*args, **kwargs)
+TypeError: put() missing 1 required positional argument: 'id'
