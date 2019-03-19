@@ -40,7 +40,6 @@ class PelapakResource(Resource):
             db.session.commit()
 
             return marshal(pelapaks, Pelapaks.response_fields), 200, {'Content-Type': 'application/json'}
-        # return {'status': 'UNAUTHORIZED', 'message': 'invalid role'}, 401
     
     @jwt_required
     def put(self):
@@ -62,16 +61,16 @@ class PelapakResource(Resource):
         qry.email = args['email']
         qry.phone = args['phone']
         db.session.commit()
-        return {'message': 'Data diperbarui...', 'input': marshal(qry, Pelapaks.response_fields)}, 200, {'Content-Type': 'application/json'}
+        return {'message': 'Update data success..', 'input': marshal(qry, Pelapaks.response_fields)}, 200, {'Content-Type': 'application/json'}
 
     @jwt_required
-    def delete(self):#, usernamePenbeli):
+    def delete(self):
         pelapak = get_jwt_claims()
         qry = Pelapaks.query.get(pelapak['id'])
 
         db.session.delete(qry)
         db.session.commit()
-        return {'message': 'Data sudah dihapus...'}, 200, {'Content-Type': 'application/json'}
+        return {'message': 'Delete data success..'}, 200, {'Content-Type': 'application/json'}
 
 
 api.add_resource(PelapakResource, '/pelapak')

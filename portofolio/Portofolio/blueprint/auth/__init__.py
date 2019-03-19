@@ -9,6 +9,7 @@ from blueprint.pelapak import *
 bp_auth = Blueprint('auth', __name__)
 api = Api(bp_auth)
 
+# token untuk customer
 class CreateTokenResources(Resource):
     def get(self):
         parser = reqparse.RequestParser()
@@ -23,8 +24,9 @@ class CreateTokenResources(Resource):
             token = create_access_token(identity=marshal(qry, Customers.response_fields))
         else:
             return {'status': 'UNAUTORIZED', 'message': 'invalid username or password'}, 401
-        return {'token': token}, 200
+        return {'message':'This is your token. Save and keep, thanks..','token': token}, 200
 
+# token untuk pelapak (admin)
 class TokenPelapakResources(Resource):
     def get(self):
         parser = reqparse.RequestParser()
@@ -39,7 +41,7 @@ class TokenPelapakResources(Resource):
             token = create_access_token(identity=marshal(qry, Pelapaks.response_fields))
         else:
             return {'status': 'UNAUTORIZED', 'message': 'invalid username or password'}, 401
-        return {'token': token}, 200
+        return {'message':'This is your token. Save and keep, thanks..','token': token}, 200
 
 api.add_resource(CreateTokenResources, '/tokencustomer')
 api.add_resource(TokenPelapakResources, '/tokenpelapak')

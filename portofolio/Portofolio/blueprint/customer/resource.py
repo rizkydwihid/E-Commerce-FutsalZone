@@ -13,14 +13,42 @@ class CustomerResource(Resource):
         pass
 
     @jwt_required
-    # def get(self, id=None):
-    def get(self):
-        customer = get_jwt_claims()
-
-        qry = Customers.query.get(customer['client_id'])
-        result = marshal(qry, Customers.response_token)
-        return result, 200, {'Content-Type': 'application/json'}
+    def get(self, client_id=None):
         
+            if client_id == None:
+                if get_jwt_claims()['role'].lower() == 'pelapak': # get data by role pelapak (admin)
+                    parser = reqparse.RequestParser()
+                    parser.add_argument('p', type=int, location='args', default=1)
+                    parser.add_argument('rp', type=int, location='args', default=5)
+
+                    args = parser.parse_args()
+
+                    # pagination
+                    offset = (args['p'] * args['rp']) - args['rp'] 
+                    qry = Customers.query
+                    list_cust = []
+                    for row in qry.limit(args['rp']).offset(offset).all(): # iterasi data satu per satu
+                        list_cust.append(marshal(row, Customers.response_fields))
+                    return {'message':'Data all customer..','list cust':list_cust } ,  200, {'Content-Type': 'application/json'}
+                return {'status': 'UNAUTHORIZED', 'message': 'Only admin can opened data!!'}, 401
+
+            else:
+                if get_jwt_claims()['role'].lower() == 'pelapak': #get data by role pelapak
+                    qry = Customers.query.get(client_id) 
+                    if qry is not None:
+                        return marshal(qry, Customers.response_fields), 200, {'message':'Data customer by id..','Content-Type': 'application/json'} # langsung di ambil 1 data by id
+                    else:
+                        return "Data Not Found", 200, {'Content-Type': 'application/json'}
+
+
+                elif get_jwt_claims()['role'].lower() == 'customer': #get data by role customer
+                    qry = Customers.query.get(client_id) 
+                    if qry is not None:
+                        return marshal(qry, Customers.response_fields), 200, {'message':'Data customer by id..','Content-Type': 'application/json'}# langsung di ambil 1 data by id
+                    else:
+                        return "Data Not Found", 200, {'Content-Type': 'application/json'}
+
+
 
     # @jwt_required
     def post(self):
@@ -39,8 +67,7 @@ class CustomerResource(Resource):
             db.session.add(customers)
             db.session.commit()
 
-            return marshal(customers, Customers.response_fields), 200, {'Content-Type': 'application/json'}
-        # return {'status': 'UNAUTHORIZED', 'message': 'invalid role'}, 401
+            return marshal(customers, Customers.response_fields), 200, {'message':'New data entered..','Content-Type': 'application/json'}
     
     @jwt_required
     def put(self):
@@ -62,16 +89,26 @@ class CustomerResource(Resource):
         qry.email = args['email']
         qry.phone = args['phone']
         db.session.commit()
-        return {'message': 'Data diperbarui...', 'input': marshal(qry, Customers.response_fields)}, 200, {'Content-Type': 'application/json'}
+        return {'message':'Update data success..', 'input': marshal(qry, Customers.response_fields)}, 200, {'Content-Type': 'application/json'}
 
     @jwt_required
     def delete(self):#, usernamePenbeli):
-        customer = get_jwt_claims()
-        qry = Customers.query.get(customer['client_id'])
+        if get_jwt_claims()['role'].lower() == 'pelapak':
+            customer = get_jwt_claims()
+            qry = Customers.query.get(customer['client_id'])
 
-        db.session.delete(qry)
-        db.session.commit()
-        return {'message': 'Data sudah dihapus...'}, 200, {'Content-Type': 'application/json'}
+            db.session.delete(qry)
+            db.session.commit()
+            return {'message':'Delete data success..',}, 200, {'Content-Type': 'application/json'}
+        
+        elif get_jwt_claims()['role'].lower() == 'customer':
+            customer = get_jwt_claims()
+            qry = Customers.query.get(customer['client_id'])
+
+            db.session.delete(qry)
+            db.session.commit()
+            return {'message':'Delete data success..',}, 200, {'Content-Type': 'application/json'}
 
 
-api.add_resource(CustomerResource, '/customer')
+
+api.add_resource(CustomerResource, '/customer', '/customer/<int:client_id>')

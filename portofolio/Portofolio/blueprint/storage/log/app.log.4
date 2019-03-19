@@ -1,76 +1,18 @@
-[2019-03-05 00:49:45,485]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /pelapak [POST]
-Traceback (most recent call last):
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/pelapak/resource.py", line 40, in post
-    db.session.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1023, in commit
-    self.transaction.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 487, in commit
-    self._prepare_impl()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 466, in _prepare_impl
-    self.session.flush()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2446, in flush
-    self._flush(objects)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2584, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 67, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2544, in _flush
-    flush_context.execute()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 416, in execute
-    rec.execute(self)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 583, in execute
-    uow,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 1063, in _emit_insert_statements
-    c = cached_connections[connection].execute(statement, multiparams)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 980, in execute
-    return meth(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
-    distilled_params,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1460, in _handle_dbapi_exception
-    util.reraise(*exc_info)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 168, in execute
-    query = self.mogrify(query, args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 147, in mogrify
-    query = query % self._escape_args(args, conn)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in _escape_args
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in <dictcomp>
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 467, in literal
-    return self.escape(obj, self.encoders)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 460, in escape
-    return converters.escape_item(obj, self.charset, mapping=mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 27, in escape_item
-    val = encoder(val, mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 118, in escape_unicode
-    return u"'%s'" % _escape_unicode(value)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 73, in _escape_unicode
-    return value.translate(_escape_table)
-AttributeError: 'builtin_function_or_method' object has no attribute 'translate'
-[2019-03-05 00:49:45,487]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "bayu", "password": "lapakbayu", "email": "bayu@gmial.com", "phone": "08334721313"}, "response": {"message": "Internal Server Error"}}
+[2019-03-18 23:12:17,090]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "admin", "email": "rizky@gmial.com", "phone": "083347213554"}, "response": {"id": 4, "username": "rizky dwi", "password": "admin", "phone": "rizky@gmial.com", "email": "083347213554", "role": "pelapak"}}
+[2019-03-18 23:13:34,585]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika", "email": "dika@gmial.com", "phone": "08567213132"}, "response": {"client_id": 3, "username": "Dika", "password": "passdika", "phone": "dika@gmial.com", "email": "08567213132", "role": "customer"}}
+[2019-03-18 23:14:09,759]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-18 23:16:01,512]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Token has expired"}}
+[2019-03-18 23:17:31,345]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5MjU4NTEsIm5iZiI6MTU1MjkyNTg1MSwianRpIjoiNzUzNjZkMmEtMWIxOC00NGNkLTgwODUtZDZmYzAwMzczMGY1IiwiZXhwIjoxNTUzMDEyMjUxLCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9fQ.H-gTqaBCuv7SKPrfx0eKvFeBqYmZoC4pesOpJmlEhjI"}}
+[2019-03-18 23:17:45,564]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"client_id": 3, "username": "Dika", "password": "passdika", "role": "customer"}}
+[2019-03-18 23:18:31,253]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "Andi", "password": "passandi", "email": "dika@gmial.com", "phone": "08567216789"}, "response": {"client_id": 4, "username": "Andi", "password": "passandi", "phone": "dika@gmial.com", "email": "08567216789", "role": "customer"}}
+[2019-03-18 23:19:09,770]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "Santi", "password": "santi1", "email": "santimail@gmial.com", "phone": "08112316789"}, "response": {"client_id": 5, "username": "Santi", "password": "santi1", "phone": "santimail@gmial.com", "email": "08112316789", "role": "customer"}}
+[2019-03-18 23:21:11,731]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"client_id": 3, "username": "Dika", "password": "passdika", "role": "customer"}}
+[2019-03-18 23:22:33,747]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "admin"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5MjYxNTMsIm5iZiI6MTU1MjkyNjE1MywianRpIjoiOGI2NTMyZWMtMjczMS00NmYwLTg2Y2UtODJhNTZjNTM4M2I1IiwiZXhwIjoxNTUzMDEyNTUzLCJpZGVudGl0eSI6eyJpZCI6MiwidXNlcm5hbWUiOiJyaXpreSIsInBhc3N3b3JkIjoiYWRtaW4iLCJwaG9uZSI6InJpemt5QGdtaWFsLmNvbSIsImVtYWlsIjoiMDgzMzQ3MjEzODkzIiwicm9sZSI6InBlbGFwYWsifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIiwidXNlcl9jbGFpbXMiOnsiaWQiOjIsInVzZXJuYW1lIjoicml6a3kiLCJwYXNzd29yZCI6ImFkbWluIiwicGhvbmUiOiJyaXpreUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4MzM0NzIxMzg5MyIsInJvbGUiOiJwZWxhcGFrIn19.kR2GxerIVrtyVaE_eQzIewG5txTzUga4w97YOTaLikk"}}
+[2019-03-18 23:45:12,876]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-18 23:45:42,915]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc1NDIsIm5iZiI6MTU1MjkyNzU0MiwianRpIjoiNWI4MzYzZmYtOGY4OC00ZjdlLWFhNDMtNzBlM2MwNGI0NWFkIiwiZXhwIjoxNTUzMDEzOTQyLCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9fQ.NtpPTBX2LnsnFd4-Wg2zPh34drK2CGTi_TsG4TH-qtE"}}
+[2019-03-18 23:46:36,265]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc1OTYsIm5iZiI6MTU1MjkyNzU5NiwianRpIjoiNzMwODlhNjYtZWRlNC00MTk0LWE5YzAtZjI1YzEyZDcxOGNlIiwiZXhwIjoxNTUzMDEzOTk2LCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9fQ.rjMvAroZw3B4zOEBo9bo-qFLVogEIKMkejmwpOH3598"}}
+[2019-03-18 23:50:29,656]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Dika", "password": "passdika"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc4MjksIm5iZiI6MTU1MjkyNzgyOSwianRpIjoiMzVjNzc3ZDUtNGVkOC00YWMzLTk5ZWYtMzhiYjdiNTdmZDY5IiwiZXhwIjoxNTUzMDE0MjI5LCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjMsInVzZXJuYW1lIjoiRGlrYSIsInBhc3N3b3JkIjoicGFzc2Rpa2EiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxMzEzMiIsInJvbGUiOiJjdXN0b21lciJ9fQ.jowVDFnIKuigdXxtZ7Fa0njNlDm5qyRWKmLqNzburbc"}}
+[2019-03-18 23:50:43,965]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Andi", "password": "passandi"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc4NDMsIm5iZiI6MTU1MjkyNzg0MywianRpIjoiODAzNDUwNjgtNjExMi00ZGE0LWI3ZDEtYTE0MjdiNWE1MTg4IiwiZXhwIjoxNTUzMDE0MjQzLCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9fQ.NyAhDwi39D2_WL0M_uQ67JOjpZ3xWJn1b8t9__EnMB8"}}
+[2019-03-18 23:51:17,090]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Andi", "password": "passandi"}, "response": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc4NzcsIm5iZiI6MTU1MjkyNzg3NywianRpIjoiOWE3MDRmMzYtNTI5ZC00ZDk0LTgzMTktNzc5MDlkNmVmNDVmIiwiZXhwIjoxNTUzMDE0Mjc3LCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9fQ.KOMc-c88UHroLR9hgEN4ALuol-N-yXNoijJti6QEWSU"}}
+[2019-03-18 23:51:35,121]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "Andi", "password": "passandi"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjc4OTUsIm5iZiI6MTU1MjkyNzg5NSwianRpIjoiNjU5NzA1NmItYmRkNi00Yjc5LTgwNjYtMDcwN2NkNmNlNWQyIiwiZXhwIjoxNTUzMDE0Mjk1LCJpZGVudGl0eSI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjbGllbnRfaWQiOjQsInVzZXJuYW1lIjoiQW5kaSIsInBhc3N3b3JkIjoicGFzc2FuZGkiLCJwaG9uZSI6ImRpa2FAZ21pYWwuY29tIiwiZW1haWwiOiIwODU2NzIxNjc4OSIsInJvbGUiOiJjdXN0b21lciJ9fQ.SxlIT1sOgU5jH1-ZDiNQWT2Ltf-HoXRK-DLMBwZISVg"}}
+[2019-03-18 23:52:06,939]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}

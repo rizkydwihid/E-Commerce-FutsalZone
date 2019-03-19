@@ -36,4 +36,4 @@ class Customers(db.Model):
         self.role = role
         
     def __repr__(self): #inisialisai awal untuk return value
-        return '<Customer %r>' % self.client_id # terus nilai balikan dari 1 class ini dikembalikan datanya pake ini
+        return '<Customer %r>' % self.client_id 

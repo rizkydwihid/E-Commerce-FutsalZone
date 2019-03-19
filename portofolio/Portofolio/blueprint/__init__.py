@@ -11,16 +11,11 @@ from flask_jwt_extended import JWTManager
 
 # initiate flask-restful instance
 app = Flask(__name__)
-#############
-# DB Config #
-#############
+
+# database config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3306/e-commerce'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-##############
-# JWT Config #
-##############
 app.config['JWT_SECRET_KEY'] = 'SFsieaaBsLEpecP675r243faM8oSB2hV'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)
 
@@ -66,8 +61,6 @@ from blueprint.customer.resource import bp_customer
 from blueprint.auth import bp_auth
 from blueprint.pelapak.resource import bp_pelapak
 from blueprint.produk.resource import bp_produk
-# from blueprints.rent.resources import bp_rent
-# from blueprints.weather import bp_weather
 
 app.register_blueprint(bp_customer)
 app.register_blueprint(bp_auth)

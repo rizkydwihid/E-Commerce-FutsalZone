@@ -1,76 +1,18 @@
-[2019-03-05 01:09:37,027]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /pelapak [POST]
-Traceback (most recent call last):
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/pelapak/resource.py", line 40, in post
-    db.session.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1023, in commit
-    self.transaction.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 487, in commit
-    self._prepare_impl()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 466, in _prepare_impl
-    self.session.flush()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2446, in flush
-    self._flush(objects)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2584, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 67, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2544, in _flush
-    flush_context.execute()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 416, in execute
-    rec.execute(self)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 583, in execute
-    uow,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 1063, in _emit_insert_statements
-    c = cached_connections[connection].execute(statement, multiparams)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 980, in execute
-    return meth(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
-    distilled_params,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1460, in _handle_dbapi_exception
-    util.reraise(*exc_info)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 168, in execute
-    query = self.mogrify(query, args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 147, in mogrify
-    query = query % self._escape_args(args, conn)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in _escape_args
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in <dictcomp>
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 467, in literal
-    return self.escape(obj, self.encoders)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 460, in escape
-    return converters.escape_item(obj, self.charset, mapping=mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 27, in escape_item
-    val = encoder(val, mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 118, in escape_unicode
-    return u"'%s'" % _escape_unicode(value)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 73, in _escape_unicode
-    return value.translate(_escape_table)
-AttributeError: 'builtin_function_or_method' object has no attribute 'translate'
-[2019-03-05 01:09:37,036]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "bayu", "password": "lapakbayu", "email": "bayu@gmial.com", "phone": "083347213893"}, "response": {"message": "Internal Server Error"}}
+[2019-03-19 00:16:24,402]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "admin"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5MjkzODQsIm5iZiI6MTU1MjkyOTM4NCwianRpIjoiN2YyOTM2NjEtMDU2My00YThlLWI3ZDMtNTgwMWZmNjEzYzdhIiwiZXhwIjoxNTUzMDE1Nzg0LCJpZGVudGl0eSI6eyJpZCI6NCwidXNlcm5hbWUiOiJyaXpreSBkd2kiLCJwYXNzd29yZCI6ImFkbWluIiwicGhvbmUiOiJyaXpreUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4MzM0NzIxMzU1NCIsInJvbGUiOiJwZWxhcGFrIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7ImlkIjo0LCJ1c2VybmFtZSI6InJpemt5IGR3aSIsInBhc3N3b3JkIjoiYWRtaW4iLCJwaG9uZSI6InJpemt5QGdtaWFsLmNvbSIsImVtYWlsIjoiMDgzMzQ3MjEzNTU0Iiwicm9sZSI6InBlbGFwYWsifX0.8bQLB3I-90tL65CkDJKja5NzcANQ0zC_sWc_hztJwg4"}}
+[2019-03-19 00:16:46,981]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"id": 4, "username": "rizky dwi", "password": "admin", "role": "pelapak"}}
+[2019-03-19 00:16:56,604]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "adminnew", "email": "rizky@gmial.com", "phone": "083347213554"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-19 00:17:00,328]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "adminnew", "email": "rizky@gmial.com", "phone": "083347213554"}, "response": {"msg": "Token has expired"}}
+[2019-03-19 00:17:28,458]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "adminnew", "email": "rizky@gmial.com", "phone": "083347213554"}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-19 00:18:09,958]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "adminnew", "email": "rizky@gmial.com", "phone": "083347213554"}, "response": {"message": "Update data success..", "input": {"id": 4, "username": "rizky dwi", "password": "adminnew", "phone": "083347213554", "email": "rizky@gmial.com", "role": "pelapak"}}}
+[2019-03-19 00:18:56,548]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "bayu skak", "password": "lapakbayu"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjk1MzYsIm5iZiI6MTU1MjkyOTUzNiwianRpIjoiNDc3ODdmYzAtM2ViMC00YWE4LWJmZDUtMzk2MjY2MDEzMzc3IiwiZXhwIjoxNTUzMDE1OTM2LCJpZGVudGl0eSI6eyJpZCI6MSwidXNlcm5hbWUiOiJiYXl1IHNrYWsiLCJwYXNzd29yZCI6ImxhcGFrYmF5dSIsInBob25lIjoiMDgzMzQ3MjEzODkzIiwiZW1haWwiOiJiYXl1QGdtaWFsLmNvbSIsInJvbGUiOiJwZWxhcGFrIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImJheXUgc2thayIsInBhc3N3b3JkIjoibGFwYWtiYXl1IiwicGhvbmUiOiIwODMzNDcyMTM4OTMiLCJlbWFpbCI6ImJheXVAZ21pYWwuY29tIiwicm9sZSI6InBlbGFwYWsifX0.9X4vNy3ErOkNueUGSat8tCb48t5UtBkGqPLSZAK-FsA"}}
+[2019-03-19 00:19:33,486]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": null, "response": {"message": "Data sudah dihapus..."}}
+[2019-03-19 00:20:08,065]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky dwi", "password": "adminnew"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjk2MDgsIm5iZiI6MTU1MjkyOTYwOCwianRpIjoiZTVjOGU3ZDgtZTczYi00ODk1LTkzM2MtZTM2NzM1NzdmZTg4IiwiZXhwIjoxNTUzMDE2MDA4LCJpZGVudGl0eSI6eyJpZCI6NCwidXNlcm5hbWUiOiJyaXpreSBkd2kiLCJwYXNzd29yZCI6ImFkbWlubmV3IiwicGhvbmUiOiIwODMzNDcyMTM1NTQiLCJlbWFpbCI6InJpemt5QGdtaWFsLmNvbSIsInJvbGUiOiJwZWxhcGFrIn0sImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsInVzZXJfY2xhaW1zIjp7ImlkIjo0LCJ1c2VybmFtZSI6InJpemt5IGR3aSIsInBhc3N3b3JkIjoiYWRtaW5uZXciLCJwaG9uZSI6IjA4MzM0NzIxMzU1NCIsImVtYWlsIjoicml6a3lAZ21pYWwuY29tIiwicm9sZSI6InBlbGFwYWsifX0.1tYii6pfFdXtXo8MULZ6_CP-KuQaJW9dBnirCC2Af6E"}}
+[2019-03-19 00:20:23,844]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": null, "response": {"message": "Delete data success.."}}
+[2019-03-19 00:21:31,630]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "admin"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5Mjk2OTEsIm5iZiI6MTU1MjkyOTY5MSwianRpIjoiNDY4ZDIxODAtMjgzYy00NDhiLWFhNWMtM2JiZDU3ODMxZmQ1IiwiZXhwIjoxNTUzMDE2MDkxLCJpZGVudGl0eSI6eyJpZCI6MiwidXNlcm5hbWUiOiJyaXpreSIsInBhc3N3b3JkIjoiYWRtaW4iLCJwaG9uZSI6InJpemt5QGdtaWFsLmNvbSIsImVtYWlsIjoiMDgzMzQ3MjEzODkzIiwicm9sZSI6InBlbGFwYWsifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIiwidXNlcl9jbGFpbXMiOnsiaWQiOjIsInVzZXJuYW1lIjoicml6a3kiLCJwYXNzd29yZCI6ImFkbWluIiwicGhvbmUiOiJyaXpreUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4MzM0NzIxMzg5MyIsInJvbGUiOiJwZWxhcGFrIn19.NvCi0dfNIYQ7zYqb75-_QOB_j8hC-ADSfExkpAgtxk0"}}
+[2019-03-19 00:21:53,326]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Missing Authorization Header"}}
+[2019-03-19 00:31:23,267]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"produk_id": 5, "nama_produk": "specs Metasala Warrior", "kategori": "sepatu futsal", "harga": 250000.0, "warna": "Biru", "ukuran": 40, "deskripsi": "Specs Metasala Warrior Sepatu Futsal Pria merupakan sepatu futsal berbahan kualitas terbaik yang didesain sporty dengan detail eyelets, neat stitching dan outsole yang nyaman saat dipakai berolahraga."}}
+[2019-03-19 00:34:07,294]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"produk_id": 5, "nama_produk": "specs Metasala Warrior", "kategori": "sepatu futsal", "harga": 250000.0, "warna": "Biru", "ukuran": 40, "deskripsi": "Specs Metasala Warrior Sepatu Futsal Pria merupakan sepatu futsal berbahan kualitas terbaik yang didesain sporty dengan detail eyelets, neat stitching dan outsole yang nyaman saat dipakai berolahraga."}}
+[2019-03-19 00:36:22,820]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-19 00:37:12,237]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "Data all product..", "list produk": [{"produk_id": 5, "nama_produk": "specs Metasala Warrior", "kategori": "sepatu futsal", "harga": 250000.0, "warna": "Biru", "ukuran": 40, "deskripsi": "Specs Metasala Warrior Sepatu Futsal Pria merupakan sepatu futsal berbahan kualitas terbaik yang didesain sporty dengan detail eyelets, neat stitching dan outsole yang nyaman saat dipakai berolahraga."}, {"produk_id": 6, "nama_produk": "specs Metasala Combat", "kategori": "sepatu futsal", "harga": 400000.0, "warna": "Hitam", "ukuran": 41, "deskripsi": "Specs Metasala Combat Sepatu Futsal Pria merupakan sepatu futsal berbahan kualitas terbaik yang didesain sporty dengan detail eyelets, neat stitching dan outsole yang nyaman saat dipakai berolahraga."}]}}
+[2019-03-19 00:37:39,242]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:47} WARNING - REQUEST LOG	{"request": {}, "response": {"produk_id": 6, "nama_produk": "specs Metasala Combat", "kategori": "sepatu futsal", "harga": 400000.0, "warna": "Hitam", "ukuran": 41, "deskripsi": "Specs Metasala Combat Sepatu Futsal Pria merupakan sepatu futsal berbahan kualitas terbaik yang didesain sporty dengan detail eyelets, neat stitching dan outsole yang nyaman saat dipakai berolahraga."}}
+[2019-03-19 08:42:17,866]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:42} WARNING - REQUEST LOG	{"request": {"username": "rizky", "password": "admin"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTI5NTk3MzcsIm5iZiI6MTU1Mjk1OTczNywianRpIjoiMWVlOTA2ZGUtZDI5Ny00OTQyLTgyZGMtYTAzODIwYTVlNjk1IiwiZXhwIjoxNTUzMDQ2MTM3LCJpZGVudGl0eSI6eyJpZCI6MiwidXNlcm5hbWUiOiJyaXpreSIsInBhc3N3b3JkIjoiYWRtaW4iLCJwaG9uZSI6InJpemt5QGdtaWFsLmNvbSIsImVtYWlsIjoiMDgzMzQ3MjEzODkzIiwicm9sZSI6InBlbGFwYWsifSwiZnJlc2giOmZhbHNlLCJ0eXBlIjoiYWNjZXNzIiwidXNlcl9jbGFpbXMiOnsiaWQiOjIsInVzZXJuYW1lIjoicml6a3kiLCJwYXNzd29yZCI6ImFkbWluIiwicGhvbmUiOiJyaXpreUBnbWlhbC5jb20iLCJlbWFpbCI6IjA4MzM0NzIxMzg5MyIsInJvbGUiOiJwZWxhcGFrIn19.Zo3CZd1V3AEktlacIUQMOzpATY8KBjZtVKKGRc1gVZw"}}

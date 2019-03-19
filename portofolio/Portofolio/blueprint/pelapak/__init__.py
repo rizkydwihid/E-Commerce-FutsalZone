@@ -36,4 +36,4 @@ class Pelapaks(db.Model):
         self.role = role
         
     def __repr__(self): 
-        return '<Pelapak %r>' % self.id # terus nilai balikan dari 1 class ini dikembalikan datanya pake ini
+        return '<Pelapak %r>' % self.id 

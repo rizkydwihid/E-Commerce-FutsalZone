@@ -1,16 +1,18 @@
 import random
 from flask_restful import fields # untuk fileds di database nya
-from blueprint import db
+from blueprint import db # import dari file app --> "challange-resfulll.py"
 
-class Produk(db.Model):
-    __tablename__="Produk" # nama tabel di database
-    produk_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)  # inisialisasi field
-    nama_produk = db.Column(db.String(100), nullable=False)
+class Cart(db.Model):
+    __tablename__="Cart" # nama tabel di database
+    cart_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)  # inisialisasi field
+    produk_id = db.Column(db.Integer, nullable=False)
+    nama_cust = db.Column(db.String(100), nullable=False)
     kategori = db.Column(db.String(50), nullable=False)
-    harga = db.Column(db.Float, nullable=False)
-    warna = db.Column(db.String(100), nullable=False)
+    jml_qty = db.Column(db.Float, nullable=False)
+    total_byr = db.Column(db.Float, nullable=False)
     ukuran = db.Column(db.Integer,nullable=False)
     deskripsi = db.Column(db.Text)
+    # role = db.Column(db.String(25), nullable=False)
     
     response_fields = {
         'produk_id': fields.Integer,
@@ -34,4 +36,4 @@ class Produk(db.Model):
         # # self.role = role
         
     def __repr__(self): 
-        return '<Produk %r>' % self.produk_id 
+        return '<cart %r>' % self.cart_id 
