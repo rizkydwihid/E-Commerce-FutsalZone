@@ -7,7 +7,8 @@ git pull
 
 source ~/.profile
 echo "$DOCKERHUB_PASS" | sudo docker login --username $DOCKERHUB_USER --password-stdin
-sudo docker stop demoi
-sudo docker rm demoi
+sudo docker stop demoooo
+sudo docker rm demoooo
 sudo docker rmi rizkydh/portofolio2
-sudo docker run -d --name demoi -p 5000:5000 rizkydh/portofolio2:latest
+sudo docker run -d --name demoooo -p 5000:5000 rizkydh/portofolio2:latest
+
