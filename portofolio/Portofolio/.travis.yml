@@ -1,0 +1,3 @@
+before_install:
+- openssl aes-256-cbc -K $encrypted_e8d2e168f700_key -iv $encrypted_e8d2e168f700_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
