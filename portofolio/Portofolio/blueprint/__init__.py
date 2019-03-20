@@ -13,7 +13,7 @@ from flask_jwt_extended import JWTManager
 app = Flask(__name__)
 
 # database config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3306/e-commerce'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://rizkyd:newpass@172.31.44.33:3306/ecommerce'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['JWT_SECRET_KEY'] = 'SFsieaaBsLEpecP675r243faM8oSB2hV'
