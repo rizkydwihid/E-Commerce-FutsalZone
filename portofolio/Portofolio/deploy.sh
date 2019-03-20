@@ -2,7 +2,7 @@
 
 eval "$(ssh-agent -s)" &&
 ssh-add -k ~/.ssh/id_rsa &&
-cd //home/ubuntu/E-Commerce-FutsalZone/portofolio/Portofolio
+cd /home/ubuntu/E-Commerce-FutsalZone/portofolio/Portofolio
 git pull
 
 source ~/.profile
