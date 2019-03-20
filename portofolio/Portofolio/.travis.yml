@@ -6,7 +6,7 @@ os:
 env:
   global:
   - DOCKER_IMAGE_NAME="portofolio2"
-  - DOCKER_HUB_ORD="rizkydh"
+  - DOCKER_HUB_ORG="rizkydh"
 
 before_script:
 - openssl aes-256-cbc -K $encrypted_e8d2e168f700_key -iv $encrypted_e8d2e168f700_iv  -in deploy_rsa.enc -out deploy_rsa -d
