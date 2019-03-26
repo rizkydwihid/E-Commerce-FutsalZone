@@ -7,13 +7,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 
 # initiate flask-restful instance
 app = Flask(__name__)
-
+CORS(app)
 # database config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://rizkyd:newpass@172.31.44.33:3306/ecommerce'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3306/portofolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['JWT_SECRET_KEY'] = 'SFsieaaBsLEpecP675r243faM8oSB2hV'
@@ -61,11 +62,15 @@ from blueprint.customer.resource import bp_customer
 from blueprint.auth import bp_auth
 from blueprint.pelapak.resource import bp_pelapak
 from blueprint.produk.resource import bp_produk
+from blueprint.cart.resource import bp_cart
+from blueprint.transaksi.resource import bp_trans
 
 app.register_blueprint(bp_customer)
 app.register_blueprint(bp_auth)
 app.register_blueprint(bp_pelapak)
 app.register_blueprint(bp_produk)
+app.register_blueprint(bp_cart)
+app.register_blueprint(bp_trans)
 # app.register_blueprint(bp_user, url_prefix='/user')
 # app.register_blueprint(bp_rent, url_prefix='/rent')
 # app.register_blueprint(bp_weather)

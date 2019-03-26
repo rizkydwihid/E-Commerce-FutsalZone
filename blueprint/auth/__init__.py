@@ -1,4 +1,4 @@
-import logging, json
+import logging, json, hashlib
 from flask import Blueprint
 from flask_restful import Resource, Api, reqparse, marshal
 from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, get_jwt_claims
@@ -11,10 +11,10 @@ api = Api(bp_auth)
 
 # token untuk customer
 class CreateTokenResources(Resource):
-    def get(self):
+    def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('username', location='args',required=True)
-        parser.add_argument('password', location='args', required=True)
+        parser.add_argument('username', location='json',required=True)
+        parser.add_argument('password', location='json', required=True)
         args = parser.parse_args()
 
         qry = Customers.query.filter_by(username=args['username']).filter_by(
@@ -28,10 +28,10 @@ class CreateTokenResources(Resource):
 
 # token untuk pelapak (admin)
 class TokenPelapakResources(Resource):
-    def get(self):
+    def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('username', location='args',required=True)
-        parser.add_argument('password', location='args', required=True)
+        parser.add_argument('username', location='json',required=True)
+        parser.add_argument('password', location='json', required=True)
         args = parser.parse_args()
 
         qry = Pelapaks.query.filter_by(username=args['username']).filter_by(
@@ -43,5 +43,5 @@ class TokenPelapakResources(Resource):
             return {'status': 'UNAUTORIZED', 'message': 'invalid username or password'}, 401
         return {'message':'This is your token. Save and keep, thanks..','token': token}, 200
 
-api.add_resource(CreateTokenResources, '/tokencustomer')
-api.add_resource(TokenPelapakResources, '/tokenpelapak')
+api.add_resource(CreateTokenResources, '/auth/customer')
+api.add_resource(TokenPelapakResources, '/auth/pelapak')

@@ -6,34 +6,53 @@ class Cart(db.Model):
     __tablename__="Cart" # nama tabel di database
     cart_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)  # inisialisasi field
     produk_id = db.Column(db.Integer, nullable=False)
+    cust_id = db.Column(db.Integer, nullable=False)
     nama_cust = db.Column(db.String(100), nullable=False)
-    kategori = db.Column(db.String(50), nullable=False)
-    jml_qty = db.Column(db.Float, nullable=False)
+    nama_barang = db.Column(db.String(100), nullable=False)
+    kategori = db.Column(db.String(100), nullable=False)
+    qty = db.Column(db.Float, nullable=False)
     total_byr = db.Column(db.Float, nullable=False)
-    ukuran = db.Column(db.Integer,nullable=False)
-    deskripsi = db.Column(db.Text)
-    # role = db.Column(db.String(25), nullable=False)
+    transaksi_id = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.String(20), nullable=False)
+    gambar = db.Column(db.String(255), nullable=False)
     
     response_fields = {
+        'cart_id': fields.Integer,
         'produk_id': fields.Integer,
-        'nama_produk': fields.String,
+        'cust_id': fields.Integer,
+        'nama_cust': fields.String,
+        'nama_barang': fields.String,
         'kategori': fields.String,
-        'harga': fields.Float,
-        'warna': fields.String,
-        'ukuran': fields.Integer,
-        'deskripsi': fields.String
-        # 'role': fields.String
+        'qty': fields.Float,
+        'total_byr': fields.Float,
+        'transaksi_id': fields.Integer,
+        'status': fields.String,
+        'gambar': fields.String
+    }
+    response_cart= {
+        'cart_id': fields.Integer,
+        'nama_cust': fields.String,
+        'nama_barang': fields.String,
+        'kategori': fields.String,
+        'transaksi_id': fields.Integer,
+        'gambar': fields.String,
+        'qty': fields.Float,
+        'total_byr': fields.Float,
+        'status': fields.String
     }
 
-    def __init__(self, produk_id, nama_produk, kategori, harga, warna, ukuran, deskripsi):
+    def __init__(self, cart_id, produk_id, cust_id, nama_cust, nama_barang, kategori, qty, total_byr, transaksi_id, status, gambar):
+        self.cart_id = cart_id
         self.produk_id = produk_id
-        self.nama_produk = nama_produk
+        self.cust_id = cust_id
+        self.nama_cust = nama_cust
+        self.nama_barang = nama_barang
         self.kategori = kategori
-        self.harga = harga
-        self.warna = warna
-        self.ukuran = ukuran
-        self.deskripsi = deskripsi 
-        # # self.role = role
-        
+        self.qty = qty
+        self.total_byr = total_byr
+        self.transaksi_id = transaksi_id
+        self.status = status
+        self.gambar = gambar
+
     def __repr__(self): 
         return '<cart %r>' % self.cart_id 

@@ -18,7 +18,7 @@ class ProdukResource(Resource):
         if produk_id == None:
             parser = reqparse.RequestParser()
             parser.add_argument('p', type=int, location='args', default=1)
-            parser.add_argument('rp', type=int, location='args', default=5)
+            parser.add_argument('rp', type=int, location='args', default=100)
             
             args = parser.parse_args()
 
@@ -28,7 +28,7 @@ class ProdukResource(Resource):
             list_produk = []
             for row in qry.limit(args['rp']).offset(offset).all(): # iterasi data satu per satu
                 list_produk.append(marshal(row, Produk.response_fields))
-            return {'message':'Data all product..','list produk':list_produk } ,  200, {'Content-Type': 'application/json'}
+            return {'message':'Data all product..','produk':list_produk } ,  200, {'Content-Type': 'application/json'}
 
         else:
 
@@ -46,53 +46,80 @@ class ProdukResource(Resource):
             
             parse.add_argument('nama_produk', location='json', required=True)
             parse.add_argument('kategori', location='json', required=True)
-            parse.add_argument('harga', location='json', required=True)
+            parse.add_argument('merk', location='json', required=True)
+            parse.add_argument('stok', location='json', required=True)
+            parse.add_argument('harga_distri', location='json', required=True)
+            parse.add_argument('harga_bandrol', location='json', required=True)
             parse.add_argument('warna', location='json', required=True)
             parse.add_argument('ukuran', location='json', required=True)
+            parse.add_argument('gambar', location='json', required=True)
             parse.add_argument('deskripsi', location='json', required=True)
 
             args = parse.parse_args()
 
-            produks = Produk(None, args['nama_produk'],args['kategori'], args['harga'], args['warna'], args['ukuran'], args['deskripsi'])
+            produks = Produk(None, args['nama_produk'],args['kategori'], args['merk'], args['stok'], args['harga_distri'], args['harga_bandrol'], args['warna'], args['ukuran'], args['gambar'], args['deskripsi'])
             db.session.add(produks)
             db.session.commit()
 
-            return marshal(produks, Produk.response_fields), 200, {'message':'Submit data product, success!!','Content-Type': 'application/json'}
+            return {'message':'Submit data product, success!!','Data': marshal(produks, Produk.response_fields)}, 200, {'Content-Type': 'application/json'}
+        
     
     @jwt_required
     def put(self, produk_id):
-        produks = get_jwt_claims()
+        if get_jwt_claims()['role'].lower() == 'pelapak':
+            produks = get_jwt_claims()
 
-        parse =reqparse.RequestParser()
-        parse.add_argument('nama_produk', location='json', required=True)
-        parse.add_argument('kategori', location='json', required=True)
-        parse.add_argument('harga', location='json', required=True)
-        parse.add_argument('warna', location='json', required=True)
-        parse.add_argument('ukuran', location='json', required=True)
-        parse.add_argument('deskripsi', location='json', required=True)
+            parse =reqparse.RequestParser()
+            parse.add_argument('nama_produk', location='json', required=True)
+            parse.add_argument('kategori', location='json', required=True)
+            parse.add_argument('merk', location='json', required=True)
+            parse.add_argument('stok', location='json', required=True)
+            parse.add_argument('harga_distri', location='json', required=True)
+            parse.add_argument('harga_bandrol', location='json', required=True)
+            parse.add_argument('warna', location='json', required=True)
+            parse.add_argument('ukuran', location='json', required=True)
+            parse.add_argument('gambar', location='json', required=True)
+            parse.add_argument('deskripsi', location='json', required=True)
 
-        args = parse.parse_args()
+            args = parse.parse_args()
 
 
-        qry = Produk.query.get(produk_id)
+            qry = Produk.query.get(produk_id)
 
-        qry.nama_produk = args['nama_produk']
-        qry.kategori = args['kategori']
-        qry.harga = args['harga']
-        qry.warna = args['warna']
-        qry.ukuran = args['ukuran']
-        qry.deskripsi = args['deskripsi']
-        db.session.commit()
-        return {'message': 'Update data success..', 'input': marshal(qry, Produk.response_fields)}, 200, {'Content-Type': 'application/json'}
+            qry.nama_produk = args['nama_produk']
+            qry.kategori = args['kategori']
+            qry.merk = args['merk']
+            qry.stok = args['stok']
+            qry.harga_distri = args['harga_distri']
+            qry.harga_bandrol = args['harga_bandrol']
+            qry.warna = args['warna']
+            qry.ukuran = args['ukuran']
+            qry.gambar = args['gambar']
+            qry.deskripsi = args['deskripsi']
+            db.session.commit()
+            return {'message': 'Update data success..', 'input': marshal(qry, Produk.response_fields)}, 200, {'Content-Type': 'application/json'}
+        return "Admin only!!", 200, {'Content-Type': 'application/json'}
+
 
     @jwt_required
     def delete(self, produk_id):
-        produks = get_jwt_claims()
-        qry = Produk.query.get(produk_id)
+        if get_jwt_claims()['role'].lower() == 'pelapak':
+            qry = Produk.query.get(produk_id)
 
-        db.session.delete(qry)
-        db.session.commit()
-        return {'message': 'Delete data success..'}, 200, {'Content-Type': 'application/json'}
+            db.session.delete(qry)
+            db.session.commit()
+            return {'message':'Delete data success..',}, 200, {'Content-Type': 'application/json'}
+        
+        elif get_jwt_claims()['produk_id']==produk_id:
+            qry = Produk.query.get(produk_id)
+            if qry.first != None:
+                db.session.delete(qry)
+                db.session.commit()
+                return {'message':'Delete data success..',}, 200, {'Content-Type': 'application/json'}
+            else:
+                return {'message': 'Data not found!'}, 404, {'Content-Type': 'application/json'}
+        return "You can't delete other customer..", 200, {'Content-Type': 'application/json'}
+
 
 
 api.add_resource(ProdukResource, '/produk', '/produk/<int:produk_id>')

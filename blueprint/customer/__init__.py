@@ -4,7 +4,7 @@ from blueprint import db # import dari file app --> "challange-resfulll.py"
 
 class Customers(db.Model):
     __tablename__="Customer" # nama tabel di database
-    client_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)  # inisialisasi field
+    cust_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)  # inisialisasi field
     username = db.Column(db.String(25), nullable=False)
     password = db.Column(db.String(25), nullable=False)
     phone = db.Column(db.String(255), nullable=False)
@@ -12,7 +12,7 @@ class Customers(db.Model):
     role = db.Column(db.String(25), nullable=False)
     
     response_fields = {
-        'client_id': fields.Integer,
+        'cust_id': fields.Integer,
         'username': fields.String,
         'password': fields.String,
         'phone': fields.String,
@@ -21,14 +21,13 @@ class Customers(db.Model):
     }
 
     response_token = {
-        'client_id': fields.Integer,
+        'cust_id': fields.Integer,
         'username': fields.String,
-        'password': fields.String,
         'role': fields.String
     }
 
-    def __init__(self, client_id, username, password, phone, email, role):
-        self.client_id = client_id
+    def __init__(self, cust_id, username, password, phone, email, role):
+        self.cust_id = cust_id
         self.username = username
         self.password = password
         self.phone = phone
@@ -36,4 +35,4 @@ class Customers(db.Model):
         self.role = role
         
     def __repr__(self): #inisialisai awal untuk return value
-        return '<Customer %r>' % self.client_id 
+        return '<Customer %r>' % self.cust_id 

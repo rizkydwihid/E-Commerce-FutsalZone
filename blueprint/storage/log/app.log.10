@@ -1,76 +1,30 @@
-[2019-03-05 00:47:15,553]{/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py:1761} ERROR - Exception on /pelapak [POST]
-Traceback (most recent call last):
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask/views.py", line 88, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/flask_restful/__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/pelapak/resource.py", line 40, in post
-    db.session.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1023, in commit
-    self.transaction.commit()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 487, in commit
-    self._prepare_impl()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 466, in _prepare_impl
-    self.session.flush()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2446, in flush
-    self._flush(objects)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2584, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 67, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2544, in _flush
-    flush_context.execute()
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 416, in execute
-    rec.execute(self)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/unitofwork.py", line 583, in execute
-    uow,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
-    insert,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/orm/persistence.py", line 1063, in _emit_insert_statements
-    c = cached_connections[connection].execute(statement, multiparams)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 980, in execute
-    return meth(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 273, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1099, in _execute_clauseelement
-    distilled_params,
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1240, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1460, in _handle_dbapi_exception
-    util.reraise(*exc_info)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 277, in reraise
-    raise value
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1236, in _execute_context
-    cursor, statement, parameters, context
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 536, in do_execute
-    cursor.execute(statement, parameters)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 168, in execute
-    query = self.mogrify(query, args)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 147, in mogrify
-    query = query % self._escape_args(args, conn)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in _escape_args
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/cursors.py", line 127, in <dictcomp>
-    return {key: conn.literal(val) for (key, val) in args.items()}
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 467, in literal
-    return self.escape(obj, self.encoders)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/connections.py", line 460, in escape
-    return converters.escape_item(obj, self.charset, mapping=mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 27, in escape_item
-    val = encoder(val, mapping)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 118, in escape_unicode
-    return u"'%s'" % _escape_unicode(value)
-  File "/home/alphatech/Documents/E-Commerce/env_pf/lib/python3.6/site-packages/pymysql/converters.py", line 73, in _escape_unicode
-    return value.translate(_escape_table)
-AttributeError: 'builtin_function_or_method' object has no attribute 'translate'
-[2019-03-05 00:47:15,562]{/home/alphatech/Documents/E-Commerce/portofolio/Portofolio/blueprint/__init__.py:54} WARNING - REQUEST LOG	{"request": {"username": "bayu", "password": "lapakbayu", "email": "bayu@gmial.com", "phone": "08334721313"}, "response": {"message": "Internal Server Error"}}
+[2019-03-26 16:44:10,992]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-26 16:44:31,542]{/home/alphatech/Music/API/blueprint/__init__.py:50} WARNING - REQUEST LOG	{"request": {"username": "deny", "password": "denytong"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1OTM0NzEsIm5iZiI6MTU1MzU5MzQ3MSwianRpIjoiZTJlNTg0ZWUtYmMzYy00MDE5LTgyM2UtZGQwNTJkMDZiMmUxIiwiZXhwIjoxNTUzNjc5ODcxLCJpZGVudGl0eSI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9fQ.jGSspnIC-4NABOmES-E3pTjUMiAh5ooxlRe3Ek4vUUE"}}
+[2019-03-26 16:44:34,089]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"message": "The requested URL was not found on the server.  If you entered the URL manually please check your spelling and try again."}}
+[2019-03-26 16:45:15,474]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Bad Authorization header. Expected value 'Bearer <JWT>'"}}
+[2019-03-26 16:45:16,161]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Bad Authorization header. Expected value 'Bearer <JWT>'"}}
+[2019-03-26 16:45:29,044]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Bad Authorization header. Expected value 'Bearer <JWT>'"}}
+[2019-03-26 16:45:45,275]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:45:46,235]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:45:49,995]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:46:43,168]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"status": "OK", "message": "List of items in your cart", "cart": [{"cart_id": 11, "nama_cust": "deny", "nama_barang": "CATALYS MISTIQUE", "kategori": "sepatu futsal", "transaksi_id": 0, "gambar": "https://i.postimg.cc/Y2mdL2f8/catalys-mistique2.jpg", "qty": 1.0, "total_byr": 420000.0, "status": "Belum di bayar"}, {"cart_id": 12, "nama_cust": "deny", "nama_barang": "APACHE ARTIC", "kategori": "sepatu futsal", "transaksi_id": 0, "gambar": "https://i.postimg.cc/nCwqjQhv/apache-merah.png", "qty": 1.0, "total_byr": 255000.0, "status": "Belum di bayar"}, {"cart_id": 13, "nama_cust": "deny", "nama_barang": "APACHE ARTIC", "kategori": "sepatu futsal", "transaksi_id": 0, "gambar": "https://i.postimg.cc/nCwqjQhv/apache-merah.png", "qty": 1.0, "total_byr": 255000.0, "status": "Belum di bayar"}, {"cart_id": 14, "nama_cust": "deny", "nama_barang": "JERSEY SPECS #2", "kategori": "jersey", "transaksi_id": 0, "gambar": "https://i.postimg.cc/9f9qtFbY/jersey2.png", "qty": 1.0, "total_byr": 80000.0, "status": "Belum di bayar"}, {"cart_id": 15, "nama_cust": "deny", "nama_barang": "KAOS KAKI SPECS", "kategori": "aksesoris", "transaksi_id": 0, "gambar": "https://i.postimg.cc/2yQwH7xT/kaos-kaki3.jpg", "qty": 1.0, "total_byr": 20000.0, "status": "Belum di bayar"}]}}
+[2019-03-26 16:47:21,879]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:47:22,857]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:47:50,199]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:47:51,076]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:47:56,473]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:48:10,377]{/home/alphatech/Music/API/blueprint/__init__.py:50} WARNING - REQUEST LOG	{"request": {"username": "deny", "password": "denytong"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1OTM2OTAsIm5iZiI6MTU1MzU5MzY5MCwianRpIjoiZGFlZjVjYzItMDA4ZS00NDk2LWE3MmEtMjU1NWRkOWQ3YWQ2IiwiZXhwIjoxNTUzNjgwMDkwLCJpZGVudGl0eSI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9fQ.60utVNh1RyRfx86lzex_DgmObN8-VWWVMtn8n4B7P4g"}}
+[2019-03-26 16:48:15,628]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:49:08,027]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:49:08,994]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:49:48,129]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:49:52,686]{/home/alphatech/Music/API/blueprint/__init__.py:50} WARNING - REQUEST LOG	{"request": {"username": "deny", "password": "denytong"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1OTM3OTIsIm5iZiI6MTU1MzU5Mzc5MiwianRpIjoiMWYyMjE0ZmUtMjRlZS00MjRjLTgzZmUtM2MyMTdlOTYyNWUxIiwiZXhwIjoxNTUzNjgwMTkyLCJpZGVudGl0eSI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9fQ.qFjI4DxIGm3p3T3dcGiycHj0bxcuQI-bXnqWRaxkRq0"}}
+[2019-03-26 16:49:57,585]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:50:48,458]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:50:49,513]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:50:52,822]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:51:20,487]{/home/alphatech/Music/API/blueprint/__init__.py:50} WARNING - REQUEST LOG	{"request": {"username": "deny", "password": "denytong"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1OTM4ODAsIm5iZiI6MTU1MzU5Mzg4MCwianRpIjoiZDc1NDg1NjgtMjJmOS00YmQ4LTg1MWItYzBhODIwZTcxNzEzIiwiZXhwIjoxNTUzNjgwMjgwLCJpZGVudGl0eSI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9fQ.EsOkNPb1JQMB0yfYfQFp9ChFzXmxyZPw2685eJI1rlE"}}
+[2019-03-26 16:51:23,558]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:52:19,782]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:58:08,083]{/home/alphatech/Music/API/blueprint/__init__.py:43} WARNING - REQUEST LOG	{"request": {}, "response": {"msg": "Not enough segments"}}
+[2019-03-26 16:58:25,483]{/home/alphatech/Music/API/blueprint/__init__.py:50} WARNING - REQUEST LOG	{"request": {"username": "deny", "password": "denytong"}, "response": {"message": "This is your token. Save and keep, thanks..", "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTM1OTQzMDUsIm5iZiI6MTU1MzU5NDMwNSwianRpIjoiYmIyODNmMjMtZGEzNS00ZjE0LWEzNzMtM2RlYjk0N2IwZDgxIiwiZXhwIjoxNTUzNjgwNzA1LCJpZGVudGl0eSI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9LCJmcmVzaCI6ZmFsc2UsInR5cGUiOiJhY2Nlc3MiLCJ1c2VyX2NsYWltcyI6eyJjdXN0X2lkIjoxMCwidXNlcm5hbWUiOiJkZW55IiwicGFzc3dvcmQiOiJkZW55dG9uZyIsInBob25lIjoiMDgzNDM4NjExMjMiLCJlbWFpbCI6ImRlbl9kZW55QGdtYWlsLmNvbSIsInJvbGUiOiJjdXN0b21lciJ9fQ.3xFlyziHG5uU_5b-1TKVA-3_aMm_vEqfvMJvHVDOZoY"}}
