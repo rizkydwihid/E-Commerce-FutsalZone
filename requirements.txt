@@ -6,4 +6,3 @@ flask-migrate
 flask-script
 flask-jwt-extended
 requests
-flask_cors

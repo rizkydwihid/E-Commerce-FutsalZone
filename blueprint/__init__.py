@@ -7,12 +7,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 from flask_jwt_extended import JWTManager
-from flask_cors import CORS
+
 
 
 # initiate flask-restful instance
 app = Flask(__name__)
-CORS(app)
+
 # database config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3306/portofolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
