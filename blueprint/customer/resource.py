@@ -19,7 +19,7 @@ class CustomerResource(Resource):
                 if get_jwt_claims()['role'].lower() == 'pelapak': # get data by role pelapak (admin)
                     parser = reqparse.RequestParser()
                     parser.add_argument('p', type=int, location='args', default=1)
-                    parser.add_argument('rp', type=int, location='args', default=5)
+                    parser.add_argument('rp', type=int, location='args', default=20)
 
                     args = parser.parse_args()
 

@@ -12,9 +12,8 @@ from flask_jwt_extended import JWTManager
 
 # initiate flask-restful instance
 app = Flask(__name__)
-
 # database config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3306/portofolio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password@3.1.96.237:3306/portofolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.config['JWT_SECRET_KEY'] = 'SFsieaaBsLEpecP675r243faM8oSB2hV'
